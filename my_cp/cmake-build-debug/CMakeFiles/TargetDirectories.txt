@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/Pudgor/my_cp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/Pudgor/my_cp/cmake-build-debug/CMakeFiles/my_cp.dir
+/home/arv1k/CLionProjects/Pudgor/my_cp/cmake-build-debug/CMakeFiles/edit_cache.dir

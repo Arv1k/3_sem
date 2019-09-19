@@ -3,7 +3,6 @@
 #include <fcntl.h>
 
 
-
 enum {
     MAX_STR_SIZE = 1024*1024,
     STD_OUT      = 0,

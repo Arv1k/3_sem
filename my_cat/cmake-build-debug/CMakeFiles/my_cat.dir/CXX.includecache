@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/Pudgor/my_cat/main.cpp
+cstdio
+-
+unistd.h
+-
+malloc.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+

@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/Pudgor/numb/main.cpp
+cstdio
+-
+cstdlib
+-
+cctype
+-
+unistd.h
+-
+sys/wait.h
+-
+

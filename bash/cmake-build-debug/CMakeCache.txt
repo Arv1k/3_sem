@@ -223,6 +223,9 @@ bash_BINARY_DIR:STATIC=/home/arv1k/CLionProjects/3_sem/bash/cmake-build-debug
 //Value Computed by CMake
 bash_SOURCE_DIR:STATIC=/home/arv1k/CLionProjects/3_sem/bash
 
+//The directory containing a CMake configuration file for readline.
+readline_DIR:PATH=readline_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

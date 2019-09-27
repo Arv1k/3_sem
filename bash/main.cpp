@@ -3,10 +3,8 @@
 #include <cstdio>
 #include <cstring>
 #include <readline/readline.h>
-#include <readline/history.h>
 #include <sys/wait.h>
 #include <cassert>
-#include <cerrno>
 
 
 char** form_argv(char* line);
@@ -14,19 +12,20 @@ char** form_argv(char* line);
 
 int main() {
     for(;;) {
-        char* input = readline("(.Y.): ");
+        char* input = readline("(&_&): ");
         if (!input)
             return 0;
 
         char** argv = form_argv(input);
 
-        if (!fork()) execvp(argv[0], argv);
+        if (!fork()) {
+            if (execvp(argv[0], argv) < 0)
+                perror(argv[0]);
 
-        int exit_status;
-        wait(&exit_status);
-        errno = WEXITSTATUS(exit_status);
-        if (errno)
-            perror(argv[0]);
+            exit(0);
+        }
+
+        wait(nullptr);
 
         free(argv);
         free(input);
@@ -36,13 +35,19 @@ int main() {
 char** form_argv(char* line) {
     assert(line);
 
-    int argc = 0;
-    char* cur_tok = strchr(line, ' ');
-    while (cur_tok) {
+    int argc = 1;
+    char* cur_tok = line;
+    for (;;) {
+        while (*cur_tok == ' ')
+            cur_tok++;
+
+        cur_tok = strchr(cur_tok, ' ');
+
+        if (!cur_tok) break;
+
         argc++;
-        cur_tok = strchr(++cur_tok, ' ');
+        cur_tok++;
     }
-    argc++;
 
     char** argv = (char**) malloc((argc + 1)*sizeof(char*));
 
@@ -56,3 +61,4 @@ char** form_argv(char* line) {
 
     return argv;
 }
+

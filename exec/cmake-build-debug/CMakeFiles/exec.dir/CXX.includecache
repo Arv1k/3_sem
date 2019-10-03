@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/3_sem/exec/main.cpp
+unistd.h
+-
+cstdio
+-
+sys/wait.h
+-
+cerrno
+-
+time.h
+-
+

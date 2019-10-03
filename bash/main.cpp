@@ -12,7 +12,8 @@ char** form_argv(char* line);
 
 int main() {
     for(;;) {
-        char* input = readline("(&_&): ");
+        char* input = readline("\033[33m(&_&): \033[0m");
+
         if (!input)
             return 0;
 
@@ -21,11 +22,14 @@ int main() {
         if (!fork()) {
             if (execvp(argv[0], argv) < 0)
                 perror(argv[0]);
-
             exit(0);
         }
 
-        wait(nullptr);
+        int exit_status;
+        wait(&exit_status);
+
+        if (WIFSIGNALED(exit_status))
+            printf("(Signal %d)\n",  WTERMSIG(exit_status));
 
         free(argv);
         free(input);
@@ -48,6 +52,9 @@ char** form_argv(char* line) {
         argc++;
         cur_tok++;
     }
+
+    if (!argc)
+        return nullptr;
 
     char** argv = (char**) malloc((argc + 1)*sizeof(char*));
 

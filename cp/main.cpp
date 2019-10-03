@@ -16,7 +16,7 @@ void cp_src_to_dest (int fd_src, int fd_dest);
 
 int main(int argc, char** argv) {
     if (argc < 2) {
-        printf("Wrong input format!");
+        printf("Wrong input format!\n");
 
         return ER_WRONG_INPUT;
     }

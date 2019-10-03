@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/3_sem/bash/main.cpp
+unistd.h
+-
+cstdlib
+-
+cstdio
+-
+cstring
+-
+readline/readline.h
+-
+sys/wait.h
+-
+cassert
+-
+

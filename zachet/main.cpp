@@ -10,7 +10,7 @@ enum ERRORs {
     ER_NUM_ARGS = -111,
 };
 
-const int num_bog = 6;
+const int num_bog = 33;
 
 
 void *bogat_thread(void *vargp);
@@ -58,12 +58,20 @@ int main(int argc, char** argv) {
 int g = 0;
 int alphabet[26] = {};
 
+#ifdef MEOW
+#define PRINTF(...) printf(...)
+
+#else
+#define PRINTF(...) ;
+
+#endif
+
 void *bogat_thread(void *vargp) {
     char my_char = 0;
     unsigned long tid = pthread_self();
 
     for (;;) {
-        printf("My ID: %lu. Waiting for access.\n", tid);
+        PRINTF("My ID: %lu. Waiting for access.\n", tid);
 
         if (sem_wait(&semaphore) < 0) {
             perror("sem_wait");
@@ -71,14 +79,14 @@ void *bogat_thread(void *vargp) {
             break;
         }
 
-        printf("My ID: %lu. Get access!\n", tid);
+        PRINTF("My ID: %lu. Get access!\n", tid);
 
         char cur_char = song[g];
         if (cur_char == '\0') {
             if (sem_post(&semaphore) < 0)
                 perror("sem_post");
 
-            printf("My ID: %lu. God...\n", tid);
+            PRINTF("My ID: %lu. God...\n", tid);
 
             break;
         }
@@ -92,7 +100,7 @@ void *bogat_thread(void *vargp) {
         }
 
         if (my_char == cur_char) {
-            printf("%c\n", my_char);
+            printf("%c ", my_char);
 
             g++;
         }
@@ -103,7 +111,7 @@ void *bogat_thread(void *vargp) {
             break;
         }
 
-        printf("My ID: %lu. I've done.\n", tid);
+        PRINTF("My ID: %lu. I've done.\n", tid);
     }
 
     return nullptr;

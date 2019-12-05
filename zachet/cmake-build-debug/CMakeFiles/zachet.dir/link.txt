@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/zachet.dir/main.cpp.o  -o zachet 
+/usr/bin/c++  -g   CMakeFiles/zachet.dir/main.cpp.o  -o zachet -lpthread 

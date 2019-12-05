@@ -1,0 +1,67 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2ece4/fast && make[1]: вход в каталог «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+/usr/bin/make -f CMakeFiles/cmTC_2ece4.dir/build.make CMakeFiles/cmTC_2ece4.dir/build
+make[2]: вход в каталог «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_2ece4.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_2ece4.dir/src.c.o   -c /home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2ece4
+/home/arv1k/CLion/clion-2018.3.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ece4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_2ece4.dir/src.c.o  -o cmTC_2ece4 
+CMakeFiles/cmTC_2ece4.dir/src.c.o: In function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+src.c:(.text+0x4a): undefined reference to `pthread_detach'
+src.c:(.text+0x5b): undefined reference to `pthread_join'
+src.c:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2ece4.dir/build.make:86: recipe for target 'cmTC_2ece4' failed
+make[2]: *** [cmTC_2ece4] Error 1
+make[2]: выход из каталога «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+Makefile:121: recipe for target 'cmTC_2ece4/fast' failed
+make[1]: *** [cmTC_2ece4/fast] Error 2
+make[1]: выход из каталога «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_64886/fast && make[1]: вход в каталог «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+/usr/bin/make -f CMakeFiles/cmTC_64886.dir/build.make CMakeFiles/cmTC_64886.dir/build
+make[2]: вход в каталог «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_64886.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_64886.dir/CheckFunctionExists.c.o   -c /home/arv1k/CLion/clion-2018.3.4/bin/cmake/linux/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_64886
+/home/arv1k/CLion/clion-2018.3.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64886.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_64886.dir/CheckFunctionExists.c.o  -o cmTC_64886 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_64886.dir/build.make:86: recipe for target 'cmTC_64886' failed
+make[2]: *** [cmTC_64886] Error 1
+make[2]: выход из каталога «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+Makefile:121: recipe for target 'cmTC_64886/fast' failed
+make[1]: *** [cmTC_64886/fast] Error 2
+make[1]: выход из каталога «/home/arv1k/CLionProjects/3_sem/zachet/cmake-build-debug/CMakeFiles/CMakeTmp»
+
+
+

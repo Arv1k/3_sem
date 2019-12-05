@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/3_sem/ls/main.cpp
+dirent.h
+-
+cerrno
+-
+getopt.h
+-
+malloc.h
+-
+cstring
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/cp_sig.dir/main.cpp.o  -o cp_sig 

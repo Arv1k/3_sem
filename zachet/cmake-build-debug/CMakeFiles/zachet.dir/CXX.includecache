@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/3_sem/zachet/main.cpp
+cstdio
+-
+cstring
+-
+cstdlib
+-
+pthread.h
+-
+semaphore.h
+-
+cerrno
+-
+

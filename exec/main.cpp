@@ -2,7 +2,8 @@
 #include <cstdio>
 #include <sys/wait.h>
 #include <cerrno>
-#include <time.h>
+#include <ctime>
+#include <cstring>
 
 
 const int ERROR_WRONG_INPUT = -1;
@@ -27,8 +28,6 @@ int main(int argc, char** argv) {
     }
 
     timespec time1 = {};
-    timespec time2 = {};
-
     clock_gettime(CLOCK_MONOTONIC, &time1);
 
     if (!fork()) {
@@ -47,26 +46,40 @@ int main(int argc, char** argv) {
     for (;;) {
         char buf[MAX_STR_SIZE];
         int ch_read = read(pipefd[0], buf, MAX_STR_SIZE);
+
         if(ch_read < 0) {
             perror("Can't read the data! ");
 
             break;
         }
 
-        int i = 0;
-        while(buf[i]) {
-            if (buf[i] == '\n')
-                n_lines++;
+        if (ch_read == 0)
+            break;
 
-            if (buf[i] == ' ')
-                n_words++;
+        char* pc = buf;
+        for(;;) {
+            pc = strchr(pc, '\n');
+            if (!pc)
+                break;
 
-            i++;
+            pc++;
+            n_lines++;
         }
 
-        n_bytes += ch_read;
+        pc = buf;
+        for(;;) {
+            while(*pc == ' ')
+                pc++;
 
-        if (ch_read == 0) break;
+            pc = strchr(pc, ' ');
+            if (!pc)
+                break;
+
+            pc++;
+            n_words++;
+        }
+
+        n_words++;
 
         int ch_write = save_write(1, buf, ch_read);
         if(ch_write < 0) {
@@ -74,12 +87,17 @@ int main(int argc, char** argv) {
 
             break;
         }
+
+        n_bytes += ch_write;
     }
 
     wait(nullptr);
+
+    timespec time2 = {};
     clock_gettime(CLOCK_MONOTONIC, &time2);
 
-    printf("\ntime:%.5lf\n", (time2.tv_sec  - time1.tv_sec) + (time2.tv_nsec - time1.tv_nsec) * (1E-9));
+    printf("\ntime:%.5lf\n", (time2.tv_sec  - time1.tv_sec) + 
+                             (time2.tv_nsec - time1.tv_nsec) * (1E-9));
 
     printf("lines:%d\n"
                   "words:%d\n"

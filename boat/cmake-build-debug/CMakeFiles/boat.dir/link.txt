@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/boat.dir/main.cpp.o  -o boat 

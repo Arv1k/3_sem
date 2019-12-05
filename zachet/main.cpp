@@ -10,7 +10,7 @@ enum ERRORs {
     ER_NUM_ARGS = -111,
 };
 
-const int num_bog = 2;
+const int num_bog = 6;
 
 
 void *bogat_thread(void *vargp);
@@ -43,14 +43,6 @@ int main(int argc, char** argv) {
 
             return ret;
         }
-
-        ret = pthread_join(tid, nullptr);
-        if (ret != 0) {
-            perror("pthread_join");
-
-            return ret;
-        }
-
     }
 
     if (sem_destroy(&semaphore) < 0) {
@@ -105,13 +97,13 @@ void *bogat_thread(void *vargp) {
             g++;
         }
 
-        printf("My ID: %lu. I've done.\n", tid);
-
         if (sem_post(&semaphore) < 0) {
             perror("sem_post");
 
             break;
         }
+
+        printf("My ID: %lu. I've done.\n", tid);
     }
 
     return nullptr;

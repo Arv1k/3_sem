@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
         return errno;
     }
 
+    unsigned long thread_id[num_bog];
     errno = 0;
     for (int i = 0; i < num_bog; i++) {
         pthread_t tid;
@@ -43,7 +44,12 @@ int main(int argc, char** argv) {
 
             return ret;
         }
+        
+        thread_id[i] = tid;
     }
+
+    for (int i = 0; i < num_bog; i++)
+        pthread_join(thread_id[i], nullptr);
 
     if (sem_destroy(&semaphore) < 0) {
         perror("sem_destroy");
@@ -58,8 +64,8 @@ int main(int argc, char** argv) {
 int g = 0;
 int alphabet[26] = {};
 
-#ifdef MEOW
-#define PRINTF(...) printf(...)
+#ifndef MEOW
+#define PRINTF printf
 
 #else
 #define PRINTF(...) ;
@@ -100,7 +106,7 @@ void *bogat_thread(void *vargp) {
         }
 
         if (my_char == cur_char) {
-            printf("%c ", my_char);
+            printf("%c\n", my_char);
 
             g++;
         }

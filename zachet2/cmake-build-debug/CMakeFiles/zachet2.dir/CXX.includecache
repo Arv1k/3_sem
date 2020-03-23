@@ -6,21 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/arv1k/CLionProjects/3_sem/bash/main.cpp
-unistd.h
--
-cstdlib
--
+/home/arv1k/CLionProjects/3_sem/zachet2/main.cpp
 cstdio
+-
+sys/types.h
+-
+dirent.h
+-
+cerrno
+-
+cctype
 -
 cstring
 -
-readline/readline.h
+cstdlib
 -
-sys/wait.h
+sys/stat.h
 -
-cassert
--
-cerrno
+pwd.h
 -
 

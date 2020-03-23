@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 
             return ret;
         }
-        
+
         thread_id[i] = tid;
     }
 
@@ -77,7 +77,7 @@ void *bogat_thread(void *vargp) {
     unsigned long tid = pthread_self();
 
     for (;;) {
-        PRINTF("My ID: %lu. Waiting for access.\n", tid);
+        //PRINTF("My ID: %lu. Waiting for access.\n", tid);
 
         if (sem_wait(&semaphore) < 0) {
             perror("sem_wait");
@@ -85,14 +85,14 @@ void *bogat_thread(void *vargp) {
             break;
         }
 
-        PRINTF("My ID: %lu. Get access!\n", tid);
+        //PRINTF("My ID: %lu. Get access!\n", tid);
 
         char cur_char = song[g];
         if (cur_char == '\0') {
             if (sem_post(&semaphore) < 0)
                 perror("sem_post");
 
-            PRINTF("My ID: %lu. God...\n", tid);
+            //PRINTF("My ID: %lu. God...\n", tid);
 
             break;
         }
@@ -106,6 +106,7 @@ void *bogat_thread(void *vargp) {
         }
 
         if (my_char == cur_char) {
+            //PRINTF("My ID: %lu. \n", tid);
             printf("%c\n", my_char);
 
             g++;
@@ -117,7 +118,7 @@ void *bogat_thread(void *vargp) {
             break;
         }
 
-        PRINTF("My ID: %lu. I've done.\n", tid);
+        //PRINTF("My ID: %lu. I've done.\n", tid);
     }
 
     return nullptr;

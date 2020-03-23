@@ -4,8 +4,8 @@
 
 
 enum {
-    STD_OUT      = 0,
-    STD_IN       = 1,
+    STD_OUT      = 1,
+    STD_IN       = 0,
 };
 
 

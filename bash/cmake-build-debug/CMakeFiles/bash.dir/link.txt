@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/bash.dir/main.cpp.o  -o bash 
+/usr/bin/c++  -g   CMakeFiles/bash.dir/main.cpp.o  -o bash -lreadline 

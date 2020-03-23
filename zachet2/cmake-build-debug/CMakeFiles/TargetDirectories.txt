@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/3_sem/zachet2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/3_sem/zachet2/cmake-build-debug/CMakeFiles/zachet2.dir
+/home/arv1k/CLionProjects/3_sem/zachet2/cmake-build-debug/CMakeFiles/edit_cache.dir

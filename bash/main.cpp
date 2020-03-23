@@ -10,9 +10,10 @@
 
 char** form_argv(char* line, int* n_pipe);
 
-
 int main() {
     for(;;) {
+        char a[4096];
+
         char* input = readline("\033[33m(&_&): \033[0m");
 
         if (!input)

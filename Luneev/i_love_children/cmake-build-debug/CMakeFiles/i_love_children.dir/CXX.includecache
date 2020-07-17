@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arv1k/CLionProjects/Luneev/i_love_children/main.cpp
+cstdio
+-
+cstdlib
+-
+sys/types.h
+-
+unistd.h
+-
+../numbers/get_num.cpp
+/home/arv1k/CLionProjects/Luneev/numbers/get_num.cpp
+
+/home/arv1k/CLionProjects/Luneev/numbers/get_num.cpp
+

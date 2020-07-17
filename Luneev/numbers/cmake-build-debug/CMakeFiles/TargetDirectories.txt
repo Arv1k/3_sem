@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/Luneev/numbers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/Luneev/numbers/cmake-build-debug/CMakeFiles/numbers.dir
+/home/arv1k/CLionProjects/Luneev/numbers/cmake-build-debug/CMakeFiles/edit_cache.dir

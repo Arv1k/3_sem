@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/Luneev/proga_v_proge/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/Luneev/proga_v_proge/cmake-build-debug/CMakeFiles/proga_v_proge.dir
+/home/arv1k/CLionProjects/Luneev/proga_v_proge/cmake-build-debug/CMakeFiles/edit_cache.dir

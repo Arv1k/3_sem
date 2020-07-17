@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/i_love_children.dir/main.cpp.o  -o i_love_children 

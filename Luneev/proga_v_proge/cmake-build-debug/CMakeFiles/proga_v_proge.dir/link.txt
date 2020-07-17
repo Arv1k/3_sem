@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/proga_v_proge.dir/main.cpp.o  -o proga_v_proge 
